@@ -2,6 +2,7 @@
 // Created by Dooooooooo21 on 2021/1/4.
 //
 #include<iostream>
+#include<string.h>
 #include "Sales_data.h"
 
 // 命名空间
@@ -41,6 +42,32 @@ int getMax(const int *arr, int count, bool isMax) {
     return tmp;
 }
 
+// 内存管理
+void memory_deal() {
+    // new
+    int *p = new int(20);
+    if (nullptr == p) {
+        *p = 10;
+    }
+    cout << *p << endl;
+    delete p;
+    p = nullptr;
+
+    // 申请块内存
+    int * arr = new int[10];
+
+    // delete
+    delete[] arr;
+}
+
+void memory_test() {
+    char *str = new char[100];
+    strcpy(str, "hello world");
+    cout << str << endl;
+    delete[] str;
+    str = nullptr;
+}
+
 int main() {
     Sales_data data1, data2;
     data1.bookNo = "1001";
@@ -66,6 +93,10 @@ int main() {
 
     // 指针
     int aa = 111;
+
+    // 存储地址
+    cout << &aa << endl;
+
     int *bb = &aa;
     cout << aa << endl;
     cout << *bb << endl;
@@ -73,4 +104,8 @@ int main() {
     cout << aa << endl;
     cout << *bb << endl;
 
+    int x = 3;
+    const int *p = &x;
+
+    memory_test();
 }
