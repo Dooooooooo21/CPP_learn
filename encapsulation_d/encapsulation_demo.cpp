@@ -3,9 +3,11 @@
 //
 
 #include <iostream>
+#include <string>
 # include <stdlib.h>
 using namespace std;
 
+// 类
 class Coordinate {
 public:
     double x;
@@ -16,6 +18,35 @@ public:
     void printY() {
         cout << y << endl;
     }
+};
+
+// 数据封装
+class Student {
+public:
+    string getName(){
+        return name;
+    }
+
+    void setName(string _name) {
+        name = _name;
+    }
+
+    string getGender(){
+        return gender;
+    }
+
+    void setGender(string _gender) {
+        gender = _gender;
+    }
+
+    int getScore() const {
+        return score;
+    }
+
+private:
+    string name;
+    string gender;
+    int score;
 };
 
 
