@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 # include <stdlib.h>
+
 using namespace std;
 
 // 类
@@ -12,9 +13,11 @@ class Coordinate {
 public:
     double x;
     double y;
+
     void printX() {
         cout << x << endl;
     }
+
     void printY() {
         cout << y << endl;
     }
@@ -23,7 +26,7 @@ public:
 // 数据封装
 class Student {
 public:
-    string getName(){
+    string getName() {
         return name;
     }
 
@@ -31,7 +34,7 @@ public:
         name = _name;
     }
 
-    string getGender(){
+    string getGender() {
         return gender;
     }
 
@@ -64,12 +67,21 @@ int main() {
         return 0;
     }
 
-    p ->x = 100;
-    p ->y = 200;
-    p ->printX();
-    p ->printY();
+    p->x = 100;
+    p->y = 200;
+    p->printX();
+    p->printY();
     delete p;
     p = nullptr;
+
+    // 对象指针
+    Coordinate *p2 = new Coordinate();
+    (*p2).x = 11;
+    (*p2).y = 22;
+    (*p2).printX();
+    (*p2).printY();
+    delete p2;
+    p2 = nullptr;
 
     return 0;
 }
