@@ -34,23 +34,23 @@ public:
 class Student {
 public:
     string getName() {
-        return name;
+        return this->name;
     }
 
-    void setName(string _name) {
-        name = _name;
+    void setName(string name) {
+        this->name = name;
     }
 
     string getGender() {
-        return gender;
+        return this->gender;
     }
 
-    void setGender(string _gender) {
-        gender = _gender;
+    void setGender(string gender) {
+        this->gender = gender;
     }
 
     int getScore() const {
-        return score;
+        return this->score;
     }
 
 private:
