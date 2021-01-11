@@ -23,6 +23,13 @@ public:
     }
 };
 
+class Line {
+public:
+    // 对象成员指针
+    Coordinate *A;
+    Coordinate *B;
+};
+
 // 数据封装
 class Student {
 public:
