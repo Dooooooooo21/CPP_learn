@@ -8,6 +8,7 @@
 #include <string>
 #include "Person.h"
 
+// 共有继承
 class Worker : public Person {
 public:
     Worker();
@@ -16,7 +17,7 @@ public:
 
     void work();
 
-public:
+protected:
     int m_salary;
 };
 

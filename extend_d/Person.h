@@ -19,6 +19,7 @@ public:
 
 public:
     string m_name;
+protected:
     int age;
 };
 
