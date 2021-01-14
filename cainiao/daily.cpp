@@ -10,7 +10,20 @@ using namespace std;
 #define WIDTH 5
 #define NEWLINE '\n'
 
+// 自定义异常
+struct MyException : public exception {
+    const char *what() const noexcept override {
+        return "c++ exception";
+    }
+};
+
 int main() {
+
+    try {
+        throw MyException();
+    } catch (MyException &exception) {
+        cout << exception.what() << endl;
+    }
 
     const int l = 10;
     const int w = 5;
