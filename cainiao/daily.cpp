@@ -3,7 +3,8 @@
 //
 
 #include <iostream>
-
+#include <csignal>
+#include <unistd.h>
 using namespace std;
 
 #define LENGTH 10
@@ -16,6 +17,18 @@ struct MyException : public exception {
         return "c++ exception";
     }
 };
+
+// 信号处理程序
+void signalHandler( int signum )
+{
+    cout << "Interrupt signal (" << signum << ") received.\n";
+
+    // 清理并关闭
+    // 终止程序
+
+    exit(signum);
+
+}
 
 int main() {
 
@@ -31,6 +44,19 @@ int main() {
 
     cout << LENGTH * WIDTH;
     cout << NEWLINE;
+
+    int i = 0;
+    // 注册信号 SIGINT 和信号处理程序
+    signal(SIGINT, signalHandler);
+
+    while(++i){
+        cout << "Going to sleep...." << endl;
+        if( i == 3 ){
+            // 产生信号
+            raise( SIGINT);
+        }
+        sleep(1);
+    }
 
     return 0;
 }
